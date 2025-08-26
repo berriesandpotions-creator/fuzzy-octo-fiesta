@@ -1,9 +1,7 @@
-Flask==2.3.3
-Flask-CORS==4.0.0
-google-generativeai
 fastapi==0.111.1
-pydantic==2.6.2
 uvicorn[standard]==0.26.1
-httpx==1.2.1
-python-dotenv==1.0.0
+pydantic==2.6.2
+google-genai==0.7.0
+SpeechRecognition==3.10.0
+PyAudio==0.2.14 
 requests==2.32.0
