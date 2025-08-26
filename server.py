@@ -9,7 +9,7 @@ api_key = os.getenv("AIzaSyDDneZ2qGf0nHVZDlKK3Hn0yiSjyN5F2YY")
 if not api_key:
     raise ValueError("GEMINI_API_KEY not set in environment!")
 
-client = genai.Client(api_key=api_key)
+client = genai.Client(api_key=api_key="AIzaSyDDneZ2qGf0nHVZDlKK3Hn0yiSjyN5F2YY")
 
 app = FastAPI()
 app.add_middleware(
@@ -36,3 +36,4 @@ def generate(req: PromptRequest):
         contents=query,
     )
     return {"result": response.text}
+
