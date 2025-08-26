@@ -6,7 +6,6 @@ import speech_recognition as sr
 import tempfile, shutil, os
 
 # ---- Google GenAI client (uses your existing GEMINI_API_KEY) ----
-api_key = os.getenv("AIzaSyDDneZ2qGf0nHVZDlKK3Hn0yiSjyN5F2YY")
 client = genai.Client()
 
 app = FastAPI()
@@ -80,4 +79,5 @@ async def speech_to_generate(
         contents=query,
     )
     return {"transcript": stt_text, "result": ai.text}
+
 
