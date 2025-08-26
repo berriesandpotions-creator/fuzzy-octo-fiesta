@@ -4,17 +4,17 @@ from pydantic import BaseModel
 from google import genai
 from fastapi.middleware.cors import CORSMiddleware
 
-# Fetch the key from environment
+# Fetch the key from Render's environment
 api_key = os.getenv("AIzaSyDDneZ2qGf0nHVZDlKK3Hn0yiSjyN5F2YY")
 if not api_key:
     raise ValueError("GEMINI_API_KEY not set in environment!")
 
-client = genai.Client(api_key=api_key="AIzaSyDDneZ2qGf0nHVZDlKK3Hn0yiSjyN5F2YY")
+client = genai.Client(api_key=api_key)
 
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # Restrict later
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -36,4 +36,3 @@ def generate(req: PromptRequest):
         contents=query,
     )
     return {"result": response.text}
-
